@@ -24,4 +24,19 @@
 အေဆမ်၌ အဖွဲ့ဝင်အဖြစ် အာရှမှ ၂၁ နိုင်ငံနှင့် အာဆီယံ အတွင်းရေးမှူးချုပ်ရုံး၊ ဥရောပဒေသမှ EU အဖွဲ့ဝင် ၃၀ နိုင်ငံနှင့် ဥရောပကော်မရှင်တို့ ပါ၀င်ပြီး စုစုပေါင်း နိုင်ငံပေါင်း ၅၁ နိုင်ငံနှင့် ဒေသဆိုင်ရာအဖွဲ့ကြီး နှစ်ခုတို့ ပါ၀င်ကြောင်း သိရသည်။
 
 အေဆမ်နိုင်ငံခြားရေးဝန်ကြီးများ အစည်းအဝေးမတိုင်မီ အေဆမ် အဆင့်မြင့်အရာရှိကြီးများ အစည်းအဝေးနှင့် ဆက်စပ် အစည်းအဝးများကို နို၀င်ဘာ ၁၇ ရက်မှ ၁၉ ရက်အထိ နေပြည်တော်ရှိ MICC – 1 တွင် ကျင်းပခဲ့ပြီး အေဆမ် မိတ်ဘက်နိုင်ငံများမှ ပါ၀င် တက်ရောက်ခဲ့ကြကြောင်း ထုတ်ပြန်ချက်အရ သိရသည်။</string>
+    <string name="title_news_by_category">News by Category</string>
+
+    <string name="sports_news_detail01">Hazard says he will sign Chelsea contract after Courtois</string>
+    <string name="sports_news_detail02">Manchester United to rival Liverpool for Christian Pulisic</string>
+    <string name="sports_news_detail03">No bidding war for Sanchez, Wenger claims</string>
+    <string name="sports_news_detail04">Guardiola breaks Premier League record with fourth straight award</string>
+
+    <string name="international_news_detail_big">US news / Donald Trump cancels London visit amid protest fears</string>
+    <string name="international_news_medium_one">President will not open new US embassy next month, with secretary of state Rex Tillerson likely to take his place</string>
+    <string name="international_news_medium_two">Mira Sorvino / I am terribly sorry for working with Woody Allen</string>
+    <string name="international_news_medium_three">The long read / How death got cool</string>
+    <string name="international_news_small_1">Facebook / overhauls News Feed in favor of meaningful social interactions</string>
+    <string name="international_news_small_2">Sport / IOC accused of backroom deals with Russia over doping scandal</string>
+    <string name="international_news_small_3">China / Marriott apologises to China over Tibet and Taiwan error</string>
 </resources>
+

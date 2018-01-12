@@ -53,7 +53,7 @@ public class RetrofitDataAgent implements NewsDataAgent {
             @Override
             public void onResponse(Call<GetNewsResponse> call, Response<GetNewsResponse> response) {
                 GetNewsResponse getNewsResponse = response.body();
-                if ((getNewsResponse!=null)){
+                if (getNewsResponse!=null){
                     LoadedNewsEvent event = new LoadedNewsEvent(getNewsResponse.getMmNews());
                     EventBus.getDefault().post(event);
                 }
