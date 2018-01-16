@@ -18,7 +18,7 @@ public class InternationalNewsAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View internationalNewsView = inflater.inflate(R.layout.item_international_news,parent,false);
+        View internationalNewsView = inflater.inflate(R.layout.item_international_news, parent, false);
         ItemInternationalNewsViewHolder itemInternationalNewsViewHolder = new ItemInternationalNewsViewHolder(internationalNewsView);
 
         return itemInternationalNewsViewHolder;

@@ -2,8 +2,12 @@ package com.padcmyanmar.mmnews;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +19,7 @@ import android.view.MenuItem;
 
 import com.padcmyanmar.mmnews.adapters.NewsAdapter;
 import com.padcmyanmar.mmnews.data.models.NewsModel;
+import com.padcmyanmar.mmnews.data.vo.NewsVO;
 import com.padcmyanmar.mmnews.delegates.NewsActionDelegate;
 import com.padcmyanmar.mmnews.events.LoadedNewsEvent;
 
@@ -36,6 +41,12 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
     @BindView(R.id.fab)
     FloatingActionButton fab;
 
+    @BindView(R.id.navigation_view)
+    NavigationView navigationView;
+
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawerLayout;
+
     private NewsAdapter nNewsAdapter;
 
     @Override
@@ -45,6 +56,19 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this, this);
         setSupportActionBar(toolbar);
+
+        /**
+         * home item at toolbar
+         */
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(R.string.title_all_news);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_user_login_menu_white_24dp);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        /**
+         * home item at toolbar
+         */
+
         nNewsAdapter = new NewsAdapter(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false);
@@ -64,6 +88,21 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.menu_news_by_category){
+                    //item.setChecked(true);
+
+                    Intent intent= NewsByCategoryActivity.newIntent(getApplicationContext());
+                    startActivity(intent);
+
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }
+                return false;
+            }
+        });
 
         NewsModel.getsObjectInstance().loadNews();
     }
@@ -97,6 +136,8 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if (id == android.R.id.home){
+            drawerLayout.openDrawer(GravityCompat.START);
         }
 
         return super.onOptionsItemSelected(item);
@@ -109,8 +150,9 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
     }
 
     @Override
-    public void onTapNewsItem() {
+    public void onTapNewsItem(NewsVO tappedNews) {
         Intent intent = new Intent(getApplicationContext(),NewsDetailsActivity.class);
+        intent.putExtra("news_id",tappedNews.getNewsId());
         startActivity(intent);
     }
 
@@ -131,7 +173,9 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onNewsLoaded(LoadedNewsEvent event){
-        Log.d(MMNewsApp.LOG_TAG,"onNewsLoad : "+ event.getNewsList().size());
+        Log.d(MMNewsApp.LOG_TAG,"onNewsLoad : "+ event.getNewsList().size());//eventbus ka broadcst lote dr ko listen lote
         nNewsAdapter.setNews(event.getNewsList());
     }
+
+
 }

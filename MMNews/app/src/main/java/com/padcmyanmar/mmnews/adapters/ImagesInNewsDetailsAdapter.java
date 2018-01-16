@@ -9,14 +9,25 @@ import android.view.ViewGroup;
 import com.padcmyanmar.mmnews.R;
 import com.padcmyanmar.mmnews.viewitems.ImageInNewsDetailsVeiwItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.ButterKnife;
+
 /**
  * Created by Ag Phone Khant on 10/12/2017.
  */
 
 public class ImagesInNewsDetailsAdapter extends PagerAdapter {
+    private List<String> mImages;
+
+    public ImagesInNewsDetailsAdapter(){
+        mImages = new ArrayList<>();
+    }
+
     @Override
     public int getCount() {
-        return 7;
+        return mImages.size();
     }
 
     @Override
@@ -35,14 +46,17 @@ public class ImagesInNewsDetailsAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         Context context = container.getContext();
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        ImageInNewsDetailsVeiwItem view = (ImageInNewsDetailsVeiwItem) layoutInflater.inflate(R.layout.item_news_details_images,container,false);
+        ImageInNewsDetailsVeiwItem view = (ImageInNewsDetailsVeiwItem) layoutInflater.inflate(R.layout.item_news_details_images, container, false);
+        view.setData(mImages.get(position));
+
         container.addView(view);
+
         return view;
     }
 
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((View)object);
+        container.removeView((View) object);
     }
 }

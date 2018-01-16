@@ -40,7 +40,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="48dp"
                     android:layout_marginLeft="@dimen/publication_distance"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     android:src="@drawable/img_dummy_publication" />
 
                 <TextView
@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <net.aungpyaephyo.mmtextview.components.MMTextView
                 android:id="@+id/tv_news"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

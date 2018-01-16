@@ -7,8 +7,8 @@ import android.view.View;
  * Created by Ag Phone Khant on 12/1/2018.
  */
 
-public class ItemSportNewsViewHolder extends RecyclerView. ViewHolder {
-    public ItemSportNewsViewHolder(View itemView){
+public class ItemSportNewsViewHolder extends RecyclerView.ViewHolder {
+    public ItemSportNewsViewHolder(View itemView) {
         super(itemView);
     }
 }

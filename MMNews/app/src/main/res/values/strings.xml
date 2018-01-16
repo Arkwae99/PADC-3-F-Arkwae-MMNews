@@ -38,5 +38,10 @@
     <string name="international_news_small_1">Facebook / overhauls News Feed in favor of meaningful social interactions</string>
     <string name="international_news_small_2">Sport / IOC accused of backroom deals with Russia over doping scandal</string>
     <string name="international_news_small_3">China / Marriott apologises to China over Tibet and Taiwan error</string>
+
+    <string name="menu_item_all_news">All News</string>
+    <string name="menu_item_news_by_category">News By Category</string>
+
+    <string name="title_all_news">All News</string>
 </resources>
 

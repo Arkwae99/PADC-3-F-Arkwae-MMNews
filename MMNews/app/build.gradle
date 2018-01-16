@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.padcmyanmar.mmnews"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -31,6 +31,8 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.4.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
+
+    implementation 'net.aungpyaephyo:mmtextview:1.1'
 
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'org.greenrobot:eventbus:3.1.1'

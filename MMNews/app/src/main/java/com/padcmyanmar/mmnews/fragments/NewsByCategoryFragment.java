@@ -15,6 +15,7 @@ import com.padcmyanmar.mmnews.MMNewsApp;
 import com.padcmyanmar.mmnews.R;
 import com.padcmyanmar.mmnews.adapters.NewsAdapter;
 import com.padcmyanmar.mmnews.data.models.NewsModel;
+import com.padcmyanmar.mmnews.data.vo.NewsVO;
 import com.padcmyanmar.mmnews.delegates.NewsActionDelegate;
 import com.padcmyanmar.mmnews.events.LoadedNewsEvent;
 
@@ -65,7 +66,7 @@ public class NewsByCategoryFragment extends Fragment implements NewsActionDelega
         EventBus.getDefault().unregister(this);
     }
     @Override
-    public void onTapNewsItem() {
+    public void onTapNewsItem(NewsVO tappedNews) {
 
     }
 

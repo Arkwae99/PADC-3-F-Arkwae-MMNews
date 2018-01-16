@@ -1,11 +1,14 @@
 package com.padcmyanmar.mmnews;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 
 
 import com.padcmyanmar.mmnews.adapters.NewsByCategoryAdapter;
@@ -37,6 +40,11 @@ public class NewsByCategoryActivity extends AppCompatActivity {
 
     private NewsByCategoryAdapter mNewsByCategoryAdapter;
 
+    public static Intent newIntent(Context context) {
+        Intent intent = new Intent(context, NewsByCategoryActivity.class);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -52,15 +60,19 @@ public class NewsByCategoryActivity extends AppCompatActivity {
 
         mNewsByCategoryAdapter = new NewsByCategoryAdapter(getSupportFragmentManager());
         vpNewsByCategory.setAdapter(mNewsByCategoryAdapter);
-        mNewsByCategoryAdapter.addTab("Local News",new NewsByCategoryFragment());
-        mNewsByCategoryAdapter.addTab("International News",new InternationalNewsByCategoryFragment());
-        mNewsByCategoryAdapter.addTab("Sport News",new SportNewsByCategoryFragment());
+        mNewsByCategoryAdapter.addTab("Local News", new NewsByCategoryFragment());
+        mNewsByCategoryAdapter.addTab("International News", new InternationalNewsByCategoryFragment());
+        mNewsByCategoryAdapter.addTab("Sport News", new SportNewsByCategoryFragment());
         tbNewsByCategory.setupWithViewPager(vpNewsByCategory);
         vpNewsByCategory.setOffscreenPageLimit(mNewsByCategoryAdapter.getCount());
 
     }
 
-
-
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
